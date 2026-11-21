@@ -1,27 +1,23 @@
-﻿using System;
-
+// Área del triángulo: (base * altura) / 2
+static double AreaTriangulo(double baseTriangulo, double altura)
 {
-    // Área del triángulo: (base * altura) / 2
-    public static double AreaTriangulo(double baseTriangulo, double altura)
-    {
-        return (baseTriangulo * altura) / 2;
-    }
+    return (baseTriangulo * altura) / 2;
+}
 
-    // Área del cuadrado: lado * lado
-    public static double AreaCuadrado(double lado)
-    {
-        return lado * lado;
-    }
+// Área del cuadrado: lado * lado
+static double AreaCuadrado(double lado)
+{
+    return lado * lado;
 }
 
 // Área del círculo: PI * radio * radio
-public static double AreaCirculo(double radio)
+static double AreaCirculo(double radio)
 {
     return Math.PI * radio * radio;
 }
 
 // Verificar si una persona es mayor o menor de edad
-public static string VerificarEdad(int edad)
+static string VerificarEdad(int edad)
 {
     if (edad >= 18)
     {
@@ -33,31 +29,80 @@ public static string VerificarEdad(int edad)
     }
 }
 
-public class Programa
+// Menu interactivo
+Console.WriteLine("=== Menú ===");
+Console.WriteLine("1. Calcular área de un triángulo");
+Console.WriteLine("2. Calcular área de un cuadrado");
+Console.WriteLine("3. Calcular área de un círculo");
+Console.WriteLine("4. Verificar edad");
+Console.WriteLine("5. Salir");
+Console.Write("Seleccione una opción:");
+int opcion = Convert.ToInt32(Console.ReadLine());
+
+switch (opcion)
 {
-    public static double AreaCirculo(double radio)
-    {
-        return Math.PI * radio * radio;
-    }
+    case 1:
 
-    public static string VerificarEdad(int edad)
-    {
-        return edad >= 18 ? "Mayor de edad" : "Menor de edad";
-    }
+        Console.Write("Ingrese la base del triángulo:");
+        double baseTriangulo = Convert.ToDouble(Console.ReadLine());
+        Console.Write("Ingrese la altura del triángulo:");
+        double altura = Convert.ToDouble(Console.ReadLine());
+        
+        while (baseTriangulo <= 0 || altura <= 0)
+        {
+            Console.WriteLine("(!) La base y la altura deben ser mayores que cero.");
+            Console.Write("Ingrese la base del triángulo:");
+            baseTriangulo = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Ingrese la altura del triángulo:");
+            altura = Convert.ToDouble(Console.ReadLine());
+        }
+        Console.WriteLine("El área del triángulo es: " + AreaTriangulo(baseTriangulo, altura));
+        break;
+    
+    case 2:
+        Console.Write("Ingrese el lado del cuadrado:");
+        double lado = Convert.ToDouble(Console.ReadLine());
 
-    public static void Main()
-    {
-        double resultadoCirculo = AreaCirculo(5);
-        Console.WriteLine("Área del círculo: " + resultadoCirculo);
+        while (lado <= 0)
+        {
+            Console.WriteLine("(!) El lado debe ser mayor que cero.");
+            Console.Write("Ingrese el lado del cuadrado:");
+            lado = Convert.ToDouble(Console.ReadLine());
+        }
+        Console.WriteLine("El área del cuadrado es: " + AreaCuadrado(lado));
+        break;
 
-        string resultadoEdad = VerificarEdad(20);
-        Console.WriteLine("Resultado de edad: " + resultadoEdad);
+    case 3:
+        Console.Write("Ingrese el radio del círculo:");
+        double radio = Convert.ToDouble(Console.ReadLine());
 
-        string resultadoEdad2 = VerificarEdad(15);
-        Console.WriteLine("Resultado de edad: " + resultadoEdad2);
-    }
+        while (radio <= 0)
+        {
+            Console.WriteLine("(!) El radio debe ser mayor que cero.");
+            Console.Write("Ingrese el radio del círculo:");
+            radio = Convert.ToDouble(Console.ReadLine());
+        }
+        Console.WriteLine("El área del círculo es: " + AreaCirculo(radio));
+        break;
+    
+    case 4:
+        Console.Write("Ingrese la edad:");
+        int edad = Convert.ToInt32(Console.ReadLine());
+
+        while (edad < 0)
+        {
+            Console.WriteLine("(!) La edad debe ser un número positivo.");
+            Console.Write("Ingrese la edad:");
+            edad = Convert.ToInt32(Console.ReadLine());
+        }
+        Console.WriteLine("La persona es: " + VerificarEdad(edad));
+        break;
+    
+    case 5:
+        Console.WriteLine("Saliendo...");
+        break;
+    
+    default:
+        Console.WriteLine("(!) Opción no válida.");
+        break;
 }
-
-
-
-
