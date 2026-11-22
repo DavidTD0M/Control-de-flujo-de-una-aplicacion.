@@ -105,12 +105,7 @@ Dependiendo de la operación realizada, el programa muestra los siguientes resul
 
 # Tecnología Utilizada
 
-- **Lenguaje de programación:** C#.
-- **Tipo de aplicación:** Aplicación de consola.
-- **Entorno de ejecución:** .NET.
-- **Control de versiones y almacenamiento del código:** GitHub.
-- **Archivo principal:** Program.cs.
-- **Archivo de documentación:** README.md.
+
 
 # Capturas de Pantalla
 
