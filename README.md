@@ -103,9 +103,6 @@ Dependiendo de la operación realizada, el programa muestra los siguientes resul
 - **Opción no válida:** muestra un mensaje de advertencia cuando se selecciona una opción que no pertenece al menú.
 - **Salida del programa:** muestra un mensaje indicando que el programa está finalizando.
 
-# Tecnología Utilizada
-
-
 
 # Capturas de Pantalla
 
